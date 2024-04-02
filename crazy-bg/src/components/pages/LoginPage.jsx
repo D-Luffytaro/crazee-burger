@@ -2,19 +2,17 @@ import { useState } from "react";
 
 function LoginPage() {
   // state (état, données)
-  const [prenom, setPrenom] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   // comportements
-  const handleClick = () => {
-    if (prenom.length > 2) {
-      alert("Bonjour " + prenom);
-    } else {
-      alert("error");
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Bonjour ${inputValue}`);
+    setInputValue("");
   };
 
   const handleChange = (event) => {
-    setPrenom(event.target.value);
+    setInputValue(event.target.value);
   };
 
   // affichage (render)
@@ -22,14 +20,15 @@ function LoginPage() {
     <div>
       <h1>Bienvenue chez nous !</h1>
       <h2>Connectez-vous</h2>
-      <form action="submit">
+      <form action="submit" onSubmit={handleSubmit}>
         <input
-          value={prenom}
+          value={inputValue}
           type="text"
           placeholder="Entrez votre prénom..."
           onChange={handleChange}
+          required
         />
-        <button onClick={handleClick}>Accéder à votre espace</button>
+        <button>Accéder à votre espace</button>
       </form>
     </div>
   );
