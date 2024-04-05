@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   // state (état, données)
@@ -26,8 +27,9 @@ export default function LoginForm() {
         type="text"
         placeholder="Entrez votre prénom..."
         onChange={handleChange}
-        required
       />
+
+      <Link to="/order">OrderPage</Link>
       <button>Accéder à votre espace</button>
     </form>
   );
