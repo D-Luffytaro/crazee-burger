@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { FaChevronRight } from "react-icons/fa6";
-import img from "../../../assets/svg.svg";
+import { BsPersonCircle } from "react-icons/bs";
+import { IoChevronForward } from "react-icons/io5";
+import TextInput from "../../reusable-ui/TextInput";
 
 export default function LoginForm() {
   // state (état, données)
@@ -27,23 +28,19 @@ export default function LoginForm() {
       <br />
       <hr />
       <h2>Connectez-vous</h2>
-
-      <div className="container">
-        <img src={img} alt="user" className="icon" />
-        <input
-          value={inputValue}
-          type="text"
-          placeholder="Entrez votre prénom"
-          onChange={handleChange}
-          required
-        />
-      </div>
+      <TextInput
+        value={inputValue}
+        onChange={handleChange}
+        placeholder={"Entrez votre prénom"}
+        required
+        Icon={<BsPersonCircle className="icon" />}
+      />
       <br />
 
       <button>
         Accéder à mon espace
         <div className="chevron">
-          <FaChevronRight />
+          <IoChevronForward />
         </div>
       </button>
     </LoginFormStyled>
@@ -77,38 +74,6 @@ const LoginFormStyled = styled.form`
     font-size: 2.25rem;
   }
 
-  //Input section
-  .container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 25rem;
-    border-radius: 0.313rem;
-    background-color: white;
-    padding: 1.125rem 0;
-    font-size: 0.938rem;
-  }
-
-  .icon {
-    margin-left: 0.625rem;
-    color: #747b91;
-    height: 1.125rem;
-    width: 1.125rem;
-  }
-
-  input {
-    border: none;
-    width: 85%;
-  }
-
-  ::placeholder {
-    font-size: 0.938rem;
-    font-weight: 400;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #d3d3d3;
-    opacity: 1;
-  }
-
   //Button section
   button {
     display: flex;
@@ -132,7 +97,7 @@ const LoginFormStyled = styled.form`
     display: flex;
   }
 
-  :hover {
+  button:hover {
     background-color: white;
     border: 0.0625rem solid #ff9f1b;
     color: #ff9f1b;
