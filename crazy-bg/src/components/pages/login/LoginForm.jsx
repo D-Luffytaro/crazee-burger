@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   // state (état, données)
@@ -36,13 +37,10 @@ export default function LoginForm() {
         Icon={<BsPersonCircle className="icon" />}
       />
       <br />
-
-      <button>
-        Accéder à mon espace
-        <div className="chevron">
-          <IoChevronForward />
-        </div>
-      </button>
+      <PrimaryButton
+        label={"Accéder à mon espace"}
+        Icon={<IoChevronForward className="chevron" />}
+      />
     </LoginFormStyled>
   );
 }
@@ -74,32 +72,7 @@ const LoginFormStyled = styled.form`
     font-size: 2.25rem;
   }
 
-  //Button section
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    font-size: 0.938rem;
-    border-radius: 0.313rem;
-    background-color: #ff9f1b;
-    color: white;
-    width: 25rem;
-    height: 3.313rem;
-    padding: 1.125rem 6.6375rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    line-height: 0.938rem;
-    text-align: center;
-  }
-
   .chevron {
     display: flex;
-  }
-
-  button:hover {
-    background-color: white;
-    border: 0.0625rem solid #ff9f1b;
-    color: #ff9f1b;
   }
 `;
