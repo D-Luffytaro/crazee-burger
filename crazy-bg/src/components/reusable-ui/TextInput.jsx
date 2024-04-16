@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   TextInput.propTypes = {
@@ -17,32 +18,31 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 }
 
 const InputStyled = styled.div`
+  background-color: ${theme.colors.white};
+  border-radius: ${theme.borderRadius.round};
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  width: 25rem;
-  border-radius: 0.313rem;
-  background-color: white;
-  padding: 1.125rem 0;
-  font-size: 0.938rem;
+  padding: 1.125rem 1.5rem;
+  margin: 1.125rem 0;
+  //white-space: nowrap;
 
   .icon {
-    margin-left: 0.625rem;
-    color: #747b91;
-    height: 1.125rem;
-    width: 1.125rem;
+    font-size: ${theme.fonts.size.P0};
+    margin-right: 0.5rem;
+    color: ${theme.colors.greySemiDark};
+    min-width: 1em;
   }
 
   input {
     border: none;
-    width: 85%;
-  }
+    font-size: ${theme.fonts.size.P0};
+    color: ${theme.colors.dark};
+    width: 100%;
+    //display: flex;
 
-  ::placeholder {
-    font-size: 0.938rem;
-    font-weight: 400;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #d3d3d3;
-    opacity: 1;
+    &::placeholder {
+      background: ${theme.colors.white};
+      color: ${theme.colors.greyMedium};
+    }
   }
 `;

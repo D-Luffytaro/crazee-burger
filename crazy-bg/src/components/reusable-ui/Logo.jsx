@@ -1,12 +1,13 @@
 import img from "../../assets/Logo-orange.png";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Logo() {
   return (
     <LogoStyled>
-      <h1>CRAZEE</h1>
+      <h1>Crazee</h1>
       <img src={img} alt="Logo" />
-      <h1>BURGER</h1>
+      <h1>Burger</h1>
     </LogoStyled>
   );
 }
@@ -19,19 +20,20 @@ const LogoStyled = styled.div`
   h1 {
     display: inline;
     text-align: center;
-    font-size: 2.25rem;
-    letter-spacing: 1.5px;
-    font-weight: 700;
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.size.P4};
     line-height: 1em;
-    color: #ffa01b;
-    font-family: "Amatic SC", sans-serif;
+    font-weight: ${theme.fonts.weights.bold};
+    text-transform: uppercase;
+    letter-spacing: 0.0938rem;
+    font-family: "Amatic SC", cursive;
   }
 
   img {
     object-fit: contain;
     object-position: center;
-    width: 5rem;
     height: 3.75rem;
-    margin: 0 0.3125rem;
+    width: 5rem; // for Safari and Firefox
+    margin: 0 ${theme.gridUnit / 2}px;
   }
 `;

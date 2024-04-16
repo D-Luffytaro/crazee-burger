@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
+import { theme } from "../../../theme/index";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
@@ -36,43 +37,44 @@ export default function LoginForm() {
         required
         Icon={<BsPersonCircle className="icon" />}
       />
-      <br />
       <PrimaryButton
         label={"Accéder à mon espace"}
-        Icon={<IoChevronForward className="chevron" />}
+        Icon={<IoChevronForward className="icon" />}
       />
     </LoginFormStyled>
   );
 }
 
 const LoginFormStyled = styled.form`
-  color: white;
-  width: 29rem;
-  height: 27.39rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-  }
+  text-align: center;
+  max-width: 31.25rem;
+  min-width: 25rem;
+  margin: 0px auto;
+  padding: 2.5rem ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.round};
+  font-family: "Amatic SC", cursive;
 
   hr {
-    width: 25rem;
-    border: 0.094rem solid #f56a2c;
+    border: 0.0938rem solid ${theme.colors.loginLine};
+    margin-bottom: ${theme.gridUnit * 5}px;
+  }
+
+  h1 {
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P5};
   }
 
   h2 {
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 700;
-    font-size: 2.25rem;
+    margin: 1.25rem 0.625rem 0.625rem;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P4};
   }
 
-  .chevron {
+  .icon {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${theme.fonts.size.P0};
+    margin-left: 0.625rem;
   }
 `;
