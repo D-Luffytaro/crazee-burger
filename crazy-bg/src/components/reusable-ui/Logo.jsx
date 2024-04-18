@@ -1,10 +1,11 @@
+import PropTypes from "prop-types";
 import img from "../../assets/Logo-orange.png";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Logo() {
+export default function Logo({ className }) {
   return (
-    <LogoStyled>
+    <LogoStyled className={className}>
       <h1>Crazee</h1>
       <img src={img} alt="Logo" />
       <h1>Burger</h1>
@@ -12,10 +13,13 @@ export default function Logo() {
   );
 }
 
+Logo.propTypes = {
+  className: PropTypes.string,
+};
+
 const LogoStyled = styled.div`
   display: flex;
   align-items: center;
-  transform: scale(2.5);
 
   h1 {
     display: inline;

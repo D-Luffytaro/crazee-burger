@@ -6,7 +6,7 @@ import background from "../../../assets/Burger-background.jpg";
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <Logo />
+      <Logo className={"logo"} />
       <LoginForm />
     </LoginPageStyled>
   );
@@ -30,4 +30,8 @@ const LoginPageStyled = styled.div`
   right: 0px;
   bottom: 0px;
   z-index: -1;
+
+  .logo {
+    transform: scale(2.5);
+  }
 `;
