@@ -3,9 +3,9 @@ import img from "../../assets/Logo-orange.png";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Logo({ className }) {
+export default function Logo({ className, onClick }) {
   return (
-    <LogoStyled className={className}>
+    <LogoStyled className={className} onClick={onClick}>
       <h1>Crazee</h1>
       <img src={img} alt="Logo" />
       <h1>Burger</h1>
@@ -15,6 +15,7 @@ export default function Logo({ className }) {
 
 Logo.propTypes = {
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 const LogoStyled = styled.div`
