@@ -2,6 +2,7 @@ import styled from "styled-components";
 import RightSide from "./RightSide";
 import Logo from "../../reusable-ui/Logo";
 import { refreshPage } from "../../../utils/window";
+import { theme } from "../../../theme";
 
 export default function Navbar() {
   return (
@@ -16,8 +17,9 @@ export default function Navbar() {
 
 const NavbarStyled = styled.div`
   display: flex;
-  background-color: white;
-  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  background-color: ${theme.colors.white};
+  border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-top-left-radius: ${theme.borderRadius.extraRound};
 
   nav {
     display: flex;

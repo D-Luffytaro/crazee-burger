@@ -1,3 +1,4 @@
+import { theme } from "../../../theme";
 import Main from "./Main";
 import Navbar from "./Navbar";
 import styled from "styled-components";
@@ -21,7 +22,7 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #ff9f1a;
+  background-color: ${theme.colors.primary};
 
   .container {
     display: flex;

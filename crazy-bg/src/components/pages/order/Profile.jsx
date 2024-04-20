@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+import { theme } from "../../../theme";
 
 export default function Profile() {
   const { username } = useParams();
@@ -23,7 +24,7 @@ export default function Profile() {
 const ProfileStyled = styled.div`
   display: flex;
   align-items: center;
-  color: #747b91;
+  color: ${theme.colors.greyBlue};
 
   font-family: "Open Sans", sans-serif;
 
@@ -32,26 +33,25 @@ const ProfileStyled = styled.div`
 
     p {
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: ${theme.fonts.weights.regular};
       line-height: 1.375rem;
       text-align: right;
       margin: 0;
     }
 
     span {
-      color: #ffa01b;
+      color: ${theme.colors.primary};
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: ${theme.fonts.weights.bold};
       line-height: 1.375rem;
       text-align: right;
     }
 
     .link {
-      color: #747b91;
-      font-size: 0.625rem;
+      color: ${theme.colors.greyBlue};
+      font-size: ${theme.fonts.size.XXS};
       text-decoration: none;
-      font-size: 0.625rem;
-      font-weight: 400;
+      font-weight:  ${theme.fonts.weights.regular};
       line-height: 0.875rem;
       text-align: right;
     }
