@@ -24,7 +24,7 @@ const NavbarStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0rem 4.375rem 0rem 1.25rem;
+    padding: 0rem 1.25rem;
   }
 
   .logo-link {
