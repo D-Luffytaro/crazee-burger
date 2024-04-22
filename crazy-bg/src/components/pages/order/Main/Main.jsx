@@ -22,6 +22,7 @@ const MainStyled = styled.div`
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
 
+  overflow-y: scroll;
   /* .basket {
     background-color: blueviolet;
   } */
