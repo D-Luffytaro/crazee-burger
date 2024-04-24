@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Product({ imageSource, title, price }) {
   return (
@@ -10,7 +11,7 @@ export default function Product({ imageSource, title, price }) {
         <div className="title">{title}</div>
         <div className="priceBtn">
           <div className="onlyPrice">
-            <div className="price">{price}</div>
+            <div className="price">{formatPrice(price)}</div>
           </div>
           <button>Ajouter</button>
         </div>
@@ -20,7 +21,6 @@ export default function Product({ imageSource, title, price }) {
 }
 
 const ProductStyled = styled.div`
-  //background-color: #2196f3;
   width: 15rem;
   height: 20.625rem;
 
@@ -32,10 +32,16 @@ const ProductStyled = styled.div`
   border-radius: 15px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
+  /* Image Section */
+
   .image {
     //border: 1px solid red;
-    max-width: 200px;
-    height: 145px;
+
+    margin-top: 3.125rem;
+    margin-bottom: 0.9375rem;
+
+    max-width: 12.5rem;
+    height: 9.0625rem;
 
     display: flex;
     align-items: center;
@@ -43,28 +49,36 @@ const ProductStyled = styled.div`
 
   img {
     width: 100%;
-    max-height: 145px;
+    max-height: 9.0625rem;
   }
+
+  /* Description Section */
 
   .description {
     //border: 1px solid red;
-    width: 200px;
-    height: 110px;
+    width: 12.5rem;
+    height: 6.875rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    padding-bottom: 5px;
+    margin-bottom: 0.3125rem;
   }
 
   .title {
-    //border: 1px solid black;
+    //border: 1px solid red;
     font-family: Amatic SC;
     font-size: 36px;
     font-weight: 700;
-    line-height: 45.4px;
-    text-align: left;
+    line-height: 2.8375rem;
     color: #17161a;
+
+    width: 11.875rem;
+    height: 2.875rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
   }
 
   .priceBtn {
@@ -72,8 +86,10 @@ const ProductStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 190px;
-    height: 66.5px;
+    width: 11.875rem;
+    height: 4.1563rem;
+    position: relative;
+    bottom: 0.5rem;
   }
 
   .onlyPrice {
@@ -82,21 +98,31 @@ const ProductStyled = styled.div`
 
   .price {
     font-family: Open Sans;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.375rem;
     text-align: left;
     color: #ffa01b;
   }
 
   button {
-    width: 95px;
-    height: 38px;
+    width: 5.9375rem;
+    height: 2.375rem;
     padding: 12px 26.3px;
-    gap: 0px;
     border-radius: 5px;
     background: #ff9f1b;
     color: white;
     border: 1px solid #ff9f1b;
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  button:active {
+    background-color: white;
+    color: #ff9f1b;
   }
 `;
