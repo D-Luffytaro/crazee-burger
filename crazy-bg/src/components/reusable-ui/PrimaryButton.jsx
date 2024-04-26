@@ -1,15 +1,9 @@
-import PropTypes from "prop-types";
 import { theme } from "../../theme";
 import styled from "styled-components";
 
-export default function PrimaryButton({ label, Icon }) {
-  PrimaryButton.propTypes = {
-    label: PropTypes.string,
-    Icon: PropTypes.elementType,
-  };
-
+export default function PrimaryButton({ label, Icon, className }) {
   return (
-    <PrimaryButtonStyled className="hover">
+    <PrimaryButtonStyled className={className}>
       <span>{label}</span>
       <div>{Icon && Icon}</div>
     </PrimaryButtonStyled>

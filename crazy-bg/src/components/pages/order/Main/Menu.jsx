@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { useState } from "react";
 import Product from "./Product";
+import { theme } from "../../../../theme";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
@@ -29,7 +30,7 @@ const MenuStyled = styled.div`
   grid-row-gap: 60px;
   justify-items: center;
 
-  background: #f5f5f7;
+  background: ${theme.colors.background_white};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   @media (max-width: 1200px) {
@@ -41,12 +42,12 @@ const MenuStyled = styled.div`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    grid-template-columns: repeat(2, minmax(12.5rem, 1fr));
     padding: 3.125rem 1.875rem;
   }
 
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+  @media (max-width: 580px) {
+    grid-template-columns: repeat(1, minmax(100%, 1fr));
     padding: 1.875rem;
     grid-row-gap: 1.875rem;
   }

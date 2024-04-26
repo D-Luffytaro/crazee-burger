@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { formatPrice } from "../../../../utils/maths";
+import { theme } from "../../../../theme";
+import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 
 export default function Product({ imageSource, title, price }) {
   return (
@@ -7,13 +9,13 @@ export default function Product({ imageSource, title, price }) {
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
-      <div className="description">
+      <div className="text-info">
         <div className="title">{title}</div>
-        <div className="priceBtn">
-          <div className="onlyPrice">
-            <div className="price">{formatPrice(price)}</div>
+        <div className="description">
+          <div className="left-description">{formatPrice(price)}</div>
+          <div className="right-description">
+            <PrimaryButton className="btn" label={"Ajouter"} />
           </div>
-          <button>Ajouter</button>
         </div>
       </div>
     </ProductStyled>
@@ -21,27 +23,25 @@ export default function Product({ imageSource, title, price }) {
 }
 
 const ProductStyled = styled.div`
+  background: ${theme.colors.white};
   width: 15rem;
   height: 20.625rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 
-  border-radius: 15px;
+  border-radius: ${theme.borderRadius.extraRound};
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
   /* Image Section */
 
   .image {
-    //border: 1px solid red;
-
-    margin-top: 3.125rem;
-    margin-bottom: 0.9375rem;
+    margin-top: 50px;
+    margin-bottom: 15px;
 
     max-width: 12.5rem;
-    height: 9.0625rem;
+    height: 145px;
 
     display: flex;
     align-items: center;
@@ -49,13 +49,12 @@ const ProductStyled = styled.div`
 
   img {
     width: 100%;
-    max-height: 9.0625rem;
+    max-height: 145px;
   }
 
   /* Description Section */
 
-  .description {
-    //border: 1px solid red;
+  .text-info {
     width: 12.5rem;
     height: 6.875rem;
     display: flex;
@@ -65,12 +64,11 @@ const ProductStyled = styled.div`
   }
 
   .title {
-    //border: 1px solid red;
     font-family: Amatic SC;
-    font-size: 36px;
-    font-weight: 700;
+    font-size: ${theme.fonts.size.P4};
+    font-weight: ${theme.fonts.weights.bold};
     line-height: 2.8375rem;
-    color: #17161a;
+    color: ${theme.colors.dark};
 
     width: 11.875rem;
     height: 2.875rem;
@@ -81,8 +79,7 @@ const ProductStyled = styled.div`
     position: relative;
   }
 
-  .priceBtn {
-    //border: 1px solid black;
+  .description {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,37 +89,19 @@ const ProductStyled = styled.div`
     bottom: 0.5rem;
   }
 
-  .onlyPrice {
-    //border: 1px solid red;
-  }
-
-  .price {
+  .left-description {
     font-family: Open Sans;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: ${theme.fonts.weights.regular};
     line-height: 1.375rem;
     text-align: left;
-    color: #ffa01b;
+    color: ${theme.colors.primary};
   }
 
-  button {
-    width: 5.9375rem;
-    height: 2.375rem;
-    padding: 12px 26.3px;
-    border-radius: 5px;
-    background: #ff9f1b;
-    color: white;
-    border: 1px solid #ff9f1b;
-    font-family: Arial;
+  .btn {
     font-size: 11px;
-    font-weight: 700;
-    line-height: 12px;
-    text-align: center;
+    width: 95px;
+    height: 38px;
     cursor: pointer;
-  }
-
-  button:active {
-    background-color: white;
-    color: #ff9f1b;
   }
 `;
