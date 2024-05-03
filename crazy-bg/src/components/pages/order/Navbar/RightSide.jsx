@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import Profile from "./Profile";
-import NavbarRightSideIncomplet from "./NavbarRightSideIncomplet";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
 
-export default function RightSide() {
+export default function RightSide({ username }) {
   return (
     <RightSideStyled>
-      <NavbarRightSideIncomplet />
-      <Profile />
+      <ToggleButton
+        labelIfChecked="Désactiver le mode admin"
+        labelIfUnchecked="Activer le mode admin"
+      />
+      <Profile username={username} />
     </RightSideStyled>
   );
 }

@@ -4,12 +4,12 @@ import Logo from "../../../reusable-ui/Logo";
 import { refreshPage } from "../../../../utils/window";
 import { theme } from "../../../../theme";
 
-export default function Navbar() {
+export default function Navbar({ username }) {
   return (
     <NavbarStyled>
       <nav>
         <Logo className="logo-link" onClick={refreshPage} />
-        <RightSide />
+        <RightSide username={username} />
       </nav>
     </NavbarStyled>
   );
