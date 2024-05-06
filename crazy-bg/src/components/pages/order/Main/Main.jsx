@@ -5,8 +5,12 @@ import Menu from "./Menu";
 export default function Main() {
   return (
     <MainStyled>
-      {/*  <div className="basket">Basket</div> */}
+      {/* <div className="basket">Basket</div> */}
       <Menu />
+      <div className="panelOnglet">
+        <div className="onglet">onglet</div>
+        <div className="panel">panel</div>
+      </div>
     </MainStyled>
   );
 }
@@ -23,7 +27,26 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
 
   overflow-y: scroll;
+
   /* .basket {
     background-color: blueviolet;
   } */
+
+  
+  .panelOnglet {
+    border: 1px solid red;
+    grid-column: span 2;
+  }
+
+  .onglet {
+    //border: 1px solid black;
+    background: yellow;
+    height: 44px;
+  }
+
+  .panel {
+    //border: 1px solid blue;
+    background: pink;
+    height: 250px;
+  }
 `;
