@@ -1,16 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
+import Tabs from "./Tabs";
 
 export default function Main() {
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <Menu />
-      <div className="panelOnglet">
-        <div className="onglet">onglet</div>
-        <div className="panel">panel</div>
+      <div className="tabs">
+        <Tabs label="Ajouter un produit " />
+        <Tabs label="Modifier un produit" />
       </div>
+      <div className="panel"></div>
     </MainStyled>
   );
 }
@@ -32,21 +34,11 @@ const MainStyled = styled.div`
     background-color: blueviolet;
   } */
 
-  
-  .panelOnglet {
-    border: 1px solid red;
-    grid-column: span 2;
-  }
-
-  .onglet {
-    //border: 1px solid black;
-    background: yellow;
-    height: 44px;
-  }
-
   .panel {
     //border: 1px solid blue;
-    background: pink;
     height: 250px;
+    border: 1px solid #e4e5e9;
+    background-color: white;
+    box-shadow: 0px -6px 8px -2px #0000001a;
   }
 `;
