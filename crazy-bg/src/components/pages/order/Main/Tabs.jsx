@@ -1,28 +1,36 @@
+import TabsButton from "./TabsButton";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
+import { FiChevronDown } from "react-icons/fi";
 import styled from "styled-components";
 
-export default function Tabs({ label }) {
+export default function Tabs({ className}) {
   return (
-    <TabsStyled className="Tabs">
-      <span>{label}</span>
-      {/* <div>Icon</div> */}
+    <TabsStyled className={className}>
+      <TabsButton className="chevron" Icon={<FiChevronDown className="icon" />} />
+      <TabsButton
+        label="Ajouter un produit "
+        Icon={<AiOutlinePlus className="icon" />}
+      />
+      <TabsButton
+        label="Modifier un produit"
+        Icon={<MdModeEditOutline className="icon" />}
+      />
     </TabsStyled>
   );
 }
 
-const TabsStyled = styled.button`
-  height: 44px;
-  width: 212.84px;
-  padding: 10px 22.82px 11px 22px;
-  border-radius: 5px 5px 0px 0px;
-  border: 1px solid #e4e5e9;
-  background: #ffffff;
+const TabsStyled = styled.div`
+  display: flex;
+  
 
-  span {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 21.79px;
-    text-align: center;
+  .chevron {
+    width: 60px;
+  }
+
+  .icon {
     color: #93a2b1;
+    width: 16px;
+    height: 16px;
   }
 `;

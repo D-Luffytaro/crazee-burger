@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
+
 import Tabs from "./Tabs";
 
 export default function Main() {
@@ -8,10 +9,7 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <Menu />
-      <div className="tabs">
-        <Tabs label="Ajouter un produit " />
-        <Tabs label="Modifier un produit" />
-      </div>
+      <Tabs className="tabs" />
       <div className="panel"></div>
     </MainStyled>
   );
@@ -33,6 +31,12 @@ const MainStyled = styled.div`
   /* .basket {
     background-color: blueviolet;
   } */
+
+  .tabs {
+    position: relative;
+    margin-left: 71px;
+    background: transparent;
+  }
 
   .panel {
     //border: 1px solid blue;
