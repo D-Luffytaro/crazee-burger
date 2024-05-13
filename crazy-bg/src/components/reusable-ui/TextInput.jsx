@@ -27,7 +27,7 @@ const InputStyled = styled.div`
   //white-space: nowrap;
 
   .icon {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: 0.5rem;
     color: ${theme.colors.greySemiDark};
     min-width: 1em;
@@ -35,7 +35,7 @@ const InputStyled = styled.div`
 
   input {
     border: none;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.dark};
     width: 100%;
     //display: flex;
