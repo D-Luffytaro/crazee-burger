@@ -20,6 +20,7 @@ const NavbarStyled = styled.div`
   background-color: ${theme.colors.white};
   border-top-right-radius: ${theme.borderRadius.extraRound};
   border-top-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom: 1px solid #E4E5E9;
 
   nav {
     display: flex;
