@@ -1,16 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
-
-import Tabs from "./Tabs";
+import Tabs from "./Admin/Tabs";
+import PanelAdmin from "./Admin/PanelAdmin";
 
 export default function Main() {
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
-      <Menu />
-      <Tabs className="tabs" />
-      <div className="panel"></div>
+      <div className="menu-and-admin">
+        <Menu />
+        <Tabs />
+        <PanelAdmin />
+      </div>
     </MainStyled>
   );
 }
@@ -32,17 +34,9 @@ const MainStyled = styled.div`
     background-color: blueviolet;
   } */
 
-  .tabs {
+  .menu-and-admin {
     position: relative;
-    margin-left: 71px;
-    background: transparent;
-  }
-
-  .panel {
-    //border: 1px solid blue;
-    height: 250px;
-    border: 1px solid #e4e5e9;
-    background-color: white;
-    box-shadow: 0px -6px 8px -2px #0000001a;
+    overflow-y: hidden;
+    display: grid;
   }
 `;
