@@ -3,10 +3,11 @@ import Profile from "./Profile";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { toast } from "react-toastify";
 import ToastAdmin from "./ToastAdmin";
-import { useState } from "react";
+import { useContext } from "react";
+import AdminContext from "../../../../context/AdminContext";
 
 export default function RightSide({ username }) {
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext);
 
   const displayToast = () => {
     setIsModeAdmin(!isModeAdmin);
@@ -28,6 +29,7 @@ export default function RightSide({ username }) {
   return (
     <RightSideStyled>
       <ToggleButton
+        isChecked={isModeAdmin}
         labelIfChecked="Désactiver le mode admin"
         labelIfUnchecked="Activer le mode admin"
         onToggle={displayToast}
