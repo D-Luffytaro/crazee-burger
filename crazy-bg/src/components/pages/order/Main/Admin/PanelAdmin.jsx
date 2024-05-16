@@ -10,7 +10,7 @@ const PanelAdminStyled = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  
+
   height: 250px;
   border: 1px solid #e4e5e9;
   background-color: white;
