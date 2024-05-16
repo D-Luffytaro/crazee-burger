@@ -3,15 +3,18 @@ import { theme } from "../../../../theme";
 import Menu from "./Menu";
 import Tabs from "./Admin/Tabs";
 import PanelAdmin from "./Admin/PanelAdmin";
+import { useContext } from "react";
+import AdminContext from "../../../../context/AdminContext";
 
 export default function Main() {
+  const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext);
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
         <Menu />
-        <Tabs />
-        <PanelAdmin />
+        {isModeAdmin && <Tabs />}
+        {isModeAdmin && <PanelAdmin />}
       </div>
     </MainStyled>
   );
