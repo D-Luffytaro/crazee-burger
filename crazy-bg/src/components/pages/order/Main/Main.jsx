@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
-import Tabs from "./Admin/Tabs";
-import PanelAdmin from "./Admin/PanelAdmin";
 import { useContext } from "react";
 import AdminContext from "../../../../context/AdminContext";
+import Admin from "./Admin/Admin";
 
 export default function Main() {
   const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext);
@@ -13,8 +12,7 @@ export default function Main() {
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
         <Menu />
-        {isModeAdmin && <Tabs />}
-        {isModeAdmin && <PanelAdmin />}
+        {isModeAdmin && <Admin />}
       </div>
     </MainStyled>
   );

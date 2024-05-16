@@ -1,25 +1,28 @@
 import styled from "styled-components";
 
-export default function TabsButton({ label, Icon, className }) {
+export default function Tab({ label, Icon, className }) {
   return (
-    <TabsButtonStyled className={className}>
+    <TabStyled className={className}>
       <div className="icon">{Icon && Icon}</div>
       <span>{label}</span>
-    </TabsButtonStyled>
+    </TabStyled>
   );
 }
 
-const TabsButtonStyled = styled.button`
+const TabStyled = styled.button`
   height: 44px;
   width: 230px;
+
   display: inline-flex;
   align-items: center;
 
-  padding: 10px 22px;
-  border-radius: 5px 5px 0 0;
-  border: 1px solid #e4e5e9;
   background: #ffffff;
+  padding: 10px 22px;
+
   margin-right: 1px;
+
+  border: 1px solid #e4e5e9;
+  border-radius: 5px 5px 0 0;
 
   span {
     font-family: "Open Sans", sans-serif;
@@ -33,8 +36,10 @@ const TabsButtonStyled = styled.button`
 
   &:hover {
     cursor: pointer;
+    border-bottom: 1px solid white;
     span {
-      border-bottom: 2px solid #93a2b1;
+      text-decoration: underline;
+      // border-bottom: 2px solid #93a2b1;
     }
   }
 
