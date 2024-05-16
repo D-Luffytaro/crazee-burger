@@ -6,14 +6,13 @@ import ToastAdmin from "./ToastAdmin";
 import { useContext } from "react";
 import AdminContext from "../../../../context/AdminContext";
 
-export default function RightSide({ username }) {
+export default function RightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext);
 
   const displayToast = () => {
     setIsModeAdmin(!isModeAdmin);
     if (!isModeAdmin) {
       toast.info("Mode admin activé", {
-        // icon: <FaUserSecret size={30} />,
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
@@ -35,7 +34,7 @@ export default function RightSide({ username }) {
         onToggle={displayToast}
       />
       <ToastAdmin />
-      <Profile username={username} />
+      <Profile />
     </RightSideStyled>
   );
 }
