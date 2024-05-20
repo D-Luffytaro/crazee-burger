@@ -25,7 +25,7 @@ const AdminTabsStyled = styled.div`
   width: fit-content;
 
   position: relative;
-  top: 1px;
+  top: 2px;
   margin-left: 5%;
 
   .chevron {

@@ -18,10 +18,12 @@ const TabStyled = styled.button`
 
   background: #ffffff;
   padding: 10px 22px;
-
   margin-right: 1px;
 
-  border: 1px solid #e4e5e9;
+  border-width: 1px 1px 2px 1px;
+  border-color: #e4e5e9;
+  border-style: solid;
+
   border-radius: 5px 5px 0 0;
 
   span {
@@ -36,10 +38,9 @@ const TabStyled = styled.button`
 
   &:hover {
     cursor: pointer;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
     span {
       text-decoration: underline;
-      // border-bottom: 2px solid #93a2b1;
     }
   }
 
@@ -47,7 +48,7 @@ const TabStyled = styled.button`
     background: #292729;
     box-shadow: 0 -6px 8px -2px rgba(0, 0, 0, 0.1);
 
-    span {
+    span, .icon {
       color: white;
     }
   }
