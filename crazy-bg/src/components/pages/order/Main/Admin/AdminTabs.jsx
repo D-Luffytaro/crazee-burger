@@ -4,8 +4,12 @@ import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
 import styled from "styled-components";
+import { useContext } from "react";
+import TextContext from "../../../../../context/TextContext";
 
 export default function AdminTabs({ isCollapse, setIsCollapse }) {
+  const { context, setContext } = useContext(TextContext);
+
   const toggle = () => {
     setIsCollapse(!isCollapse);
   };
@@ -25,13 +29,15 @@ export default function AdminTabs({ isCollapse, setIsCollapse }) {
       />
 
       <Tab
-        label="Ajouter un produit "
+        label="Ajouter un produit"
+        onClick={() => setContext("Ajouter un produit")}
         className={isCollapse ? "active" : ""}
         Icon={<AiOutlinePlus className="icon" />}
       />
 
       <Tab
         label="Modifier un produit"
+        onClick={() => setContext("Modifier un produit")}
         className={isCollapse ? "active" : ""}
         Icon={<MdModeEditOutline className="icon" />}
       />
