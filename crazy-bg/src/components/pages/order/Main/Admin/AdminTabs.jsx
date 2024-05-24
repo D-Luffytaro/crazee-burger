@@ -2,20 +2,30 @@ import Tab from "./Tab";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
+import { FiChevronUp } from "react-icons/fi";
 import styled from "styled-components";
 
-export default function AdminTabs({ className }) {
+export default function AdminTabs({ isCollapse, setIsCollapse }) {
+  const toggle = () => {
+    setIsCollapse(!isCollapse);
+  };
   return (
-    <AdminTabsStyled className={className}>
-      <Tab className="chevron" Icon={<FiChevronDown className="icon" />} />
+    <AdminTabsStyled>
       <Tab
+        onClick={toggle}
+        className="chevron"
+        Icon={<FiChevronDown className="icon" />}
+      />
+
+      {/*  <Tab
         label="Ajouter un produit "
         Icon={<AiOutlinePlus className="icon" />}
       />
+
       <Tab
         label="Modifier un produit"
         Icon={<MdModeEditOutline className="icon" />}
-      />
+      /> */}
     </AdminTabsStyled>
   );
 }

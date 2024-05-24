@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function Tab({ label, Icon, className }) {
+export default function Tab({ label, Icon, className, onClick }) {
   return (
-    <TabStyled className={className}>
+    <TabStyled className={className} onClick={onClick}>
       <div className="icon">{Icon && Icon}</div>
       <span>{label}</span>
     </TabStyled>
@@ -48,7 +48,8 @@ const TabStyled = styled.button`
     background: #292729;
     box-shadow: 0 -6px 8px -2px rgba(0, 0, 0, 0.1);
 
-    span, .icon {
+    span,
+    .icon {
       color: white;
     }
   }
