@@ -4,21 +4,26 @@ export default function Tab({ label, Icon, className, onClick }) {
   return (
     <TabStyled className={className} onClick={onClick}>
       <div className="icon">{Icon && Icon}</div>
-      <span>{label}</span>
+      {label && <span className="label">{label}</span>}
     </TabStyled>
   );
 }
 
 const TabStyled = styled.button`
   height: 43px;
-  width: 60px;
+  padding: 0 20px;
 
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
 
+  cursor: pointer;
+
+  position: relative;
+  left: 5%;
+  top: 2px;
+
   background: #ffffff;
-  padding: 14px 22px;
-  margin-right: 1px;
 
   border-width: 1px 1px 2px 1px;
   border-color: #e4e5e9;
@@ -33,24 +38,16 @@ const TabStyled = styled.button`
     line-height: 22px;
     text-align: center;
     color: #93a2b1;
-    margin-left: 10px;
+  }
+
+  .label {
+    margin-left: 13px;
   }
 
   &:hover {
-    cursor: pointer;
     border-bottom: 2px solid white;
     span {
       text-decoration: underline;
-    }
-  }
-
-  &:active {
-    background: #292729;
-    box-shadow: 0 -6px 8px -2px rgba(0, 0, 0, 0.1);
-
-    span,
-    .icon {
-      color: white;
     }
   }
 `;

@@ -12,6 +12,7 @@ export default function AdminTabs({ isCollapse, setIsCollapse }) {
   return (
     <AdminTabsStyled>
       <Tab
+        label=""
         onClick={toggle}
         className={isCollapse ? "active" : ""}
         Icon={
@@ -24,14 +25,14 @@ export default function AdminTabs({ isCollapse, setIsCollapse }) {
       />
 
       <Tab
-        className="tab"
         label="Ajouter un produit "
+        className={isCollapse ? "active" : ""}
         Icon={<AiOutlinePlus className="icon" />}
       />
 
       <Tab
-        className="tab"
         label="Modifier un produit"
+        className={isCollapse ? "active" : ""}
         Icon={<MdModeEditOutline className="icon" />}
       />
     </AdminTabsStyled>
@@ -42,18 +43,10 @@ const AdminTabsStyled = styled.div`
   display: flex;
   width: fit-content;
 
-  position: relative;
-  top: 2px;
-  margin-left: 5%;
-
   .icon {
     color: #93a2b1;
     width: 16px;
     height: 16px;
-  }
-
-  .tab {
-    width: 225px;
   }
 
   .active {
@@ -64,5 +57,9 @@ const AdminTabsStyled = styled.div`
     .icon {
       color: white;
     }
+  }
+
+  button {
+    margin-right: 1px;
   }
 `;
