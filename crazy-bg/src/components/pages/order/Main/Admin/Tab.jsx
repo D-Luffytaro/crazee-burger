@@ -10,14 +10,14 @@ export default function Tab({ label, Icon, className, onClick }) {
 }
 
 const TabStyled = styled.button`
-  height: 44px;
-  width: 230px;
+  height: 43px;
+  width: 60px;
 
   display: inline-flex;
   align-items: center;
 
   background: #ffffff;
-  padding: 10px 22px;
+  padding: 14px 22px;
   margin-right: 1px;
 
   border-width: 1px 1px 2px 1px;

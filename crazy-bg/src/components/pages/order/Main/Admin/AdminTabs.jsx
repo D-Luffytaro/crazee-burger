@@ -13,19 +13,27 @@ export default function AdminTabs({ isCollapse, setIsCollapse }) {
     <AdminTabsStyled>
       <Tab
         onClick={toggle}
-        className="chevron"
-        Icon={<FiChevronDown className="icon" />}
+        className={isCollapse ? "active" : ""}
+        Icon={
+          isCollapse ? (
+            <FiChevronUp className="icon" />
+          ) : (
+            <FiChevronDown className="icon" />
+          )
+        }
       />
 
-      {/*  <Tab
+      <Tab
+        className="tab"
         label="Ajouter un produit "
         Icon={<AiOutlinePlus className="icon" />}
       />
 
       <Tab
+        className="tab"
         label="Modifier un produit"
         Icon={<MdModeEditOutline className="icon" />}
-      /> */}
+      />
     </AdminTabsStyled>
   );
 }
@@ -38,13 +46,23 @@ const AdminTabsStyled = styled.div`
   top: 2px;
   margin-left: 5%;
 
-  .chevron {
-    width: 60px;
-  }
-
   .icon {
     color: #93a2b1;
     width: 16px;
     height: 16px;
+  }
+
+  .tab {
+    width: 225px;
+  }
+
+  .active {
+    background: #292729;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: #292729;
+    .icon {
+      color: white;
+    }
   }
 `;
