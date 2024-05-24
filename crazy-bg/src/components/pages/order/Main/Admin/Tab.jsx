@@ -31,6 +31,12 @@ const TabStyled = styled.button`
 
   border-radius: 5px 5px 0 0;
 
+  .icon {
+    color: #93a2b1;
+    width: 16px;
+    height: 16px;
+  }
+
   span {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;

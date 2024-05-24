@@ -1,11 +1,7 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import TextContext from "../../../../../context/TextContext";
 
 export default function PanelAdmin() {
-  const { context, setContext } = useContext(TextContext);
-
-  return <AdminPanelStyled>{context}</AdminPanelStyled>;
+  return <AdminPanelStyled></AdminPanelStyled>;
 }
 
 const AdminPanelStyled = styled.div`
