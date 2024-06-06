@@ -4,12 +4,18 @@ import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext } from "react";
+import AdminContext from "../../../../../context/AdminContext";
 
-export default function AdminTabs({ isCollapse, setIsCollapse }) {
-
-  const [isEditSelected, setIsEditSelected] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
+export default function AdminTabs() {
+  const {
+    isCollapse,
+    setIsCollapse,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  } = useContext(AdminContext);
 
   const selectAddTab = () => {
     setIsCollapse(false);

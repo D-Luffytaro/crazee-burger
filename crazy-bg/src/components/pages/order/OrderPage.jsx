@@ -7,10 +7,19 @@ import { useState } from "react";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isCollapse, setIsCollapse] = useState(false);
+  const [isAddSelected, setIsAddSelected] = useState(true);
+  const [isEditSelected, setIsEditSelected] = useState(false);
 
   const adminContextValue = {
     isModeAdmin,
     setIsModeAdmin,
+    isCollapse,
+    setIsCollapse,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
   };
 
   return (

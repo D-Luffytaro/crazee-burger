@@ -1,13 +1,15 @@
 import AdminTabs from "./AdminTabs";
 import AdminPanel from "./AdminPanel";
 import styled from "styled-components";
-import { useState } from "react";
+import AdminContext from "../../../../../context/AdminContext";
+import { useContext } from "react";
 
 export default function Admin() {
-  const [isCollapse, setIsCollapse] = useState(false);
+  const { isCollapse } = useContext(AdminContext);
+
   return (
     <AdminStyled>
-      <AdminTabs isCollapse={isCollapse} setIsCollapse={setIsCollapse} />
+      <AdminTabs />
       {!isCollapse && <AdminPanel />}
     </AdminStyled>
   );
