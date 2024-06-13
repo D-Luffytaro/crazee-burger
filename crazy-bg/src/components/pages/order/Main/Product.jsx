@@ -79,6 +79,7 @@ const ProductStyled = styled.div`
         text-overflow: ellipsis;
         font-weight: ${theme.fonts.weights.medium};
         color: ${theme.colors.primary};
+        font-family: Open Sans;
       }
 
       .right-description {
