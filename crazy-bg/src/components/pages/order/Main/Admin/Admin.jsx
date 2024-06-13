@@ -5,12 +5,12 @@ import AdminContext from "../../../../../context/AdminContext";
 import { useContext } from "react";
 
 export default function Admin() {
-  const { isCollapse } = useContext(AdminContext);
+  const { isCollapsed } = useContext(AdminContext);
 
   return (
     <AdminStyled>
       <AdminTabs />
-      {!isCollapse && <AdminPanel />}
+      {!isCollapsed && <AdminPanel />}
     </AdminStyled>
   );
 }

@@ -1,15 +1,10 @@
-import { createContext } from "react";
+import { createContext } from "react"
 
 export default createContext({
   isModeAdmin: false,
   setIsModeAdmin: () => {},
-
-  isCollapse: false,
-  setIsCollapse: () => {},
-
-  isAddSelected: true,
-  setIsAddSelected: () => {},
-
-  isEditSelected: false,
-  setIsEditSelected: () => {},
-});
+  isCollapsed: false,
+  setIsCollapsed: () => {},
+  currentTabSelected: false,
+  setCurrentTabSelected: () => {},
+})

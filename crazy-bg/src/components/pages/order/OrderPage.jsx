@@ -6,20 +6,17 @@ import AdminContext from "../../../context/AdminContext";
 import { useState } from "react";
 
 export default function OrderPage() {
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapse, setIsCollapse] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const [isEditSelected, setIsEditSelected] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
   const adminContextValue = {
     isModeAdmin,
     setIsModeAdmin,
-    isCollapse,
-    setIsCollapse,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
   };
 
   return (

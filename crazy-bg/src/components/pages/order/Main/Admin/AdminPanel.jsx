@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import AdminContext from "../../../../../context/AdminContext";
 import { useContext } from "react";
+import { getTabSelected, tabsConfig } from "./tabsConfig";
 
 export default function PanelAdmin() {
-  const { isAddSelected, isEditSelected } = useContext(AdminContext);
+  const { currentTabSelected } = useContext(AdminContext);
 
-  return (
-    <AdminPanelStyled>
-      {isAddSelected && "Ajouter un produit"}
-      {isEditSelected && "Modifier un produit"}
-    </AdminPanelStyled>
-  );
+  const tabs = tabsConfig;
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
+
+  return <AdminPanelStyled>{tabSelected.label}</AdminPanelStyled>;
 }
 
 const AdminPanelStyled = styled.div`
