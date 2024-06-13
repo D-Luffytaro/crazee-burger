@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 
-export default function Product({ imageSource, title, price }) {
+export default function Product({ title, imageSource, leftDescription }) {
   return (
-    <ProductStyled>
+    <ProductStyled className="produit">
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
       <div className="text-info">
         <div className="title">{title}</div>
         <div className="description">
-          <div className="left-description">{formatPrice(price)}</div>
+          <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="btn" label={"Ajouter"} />
+            <PrimaryButton className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -24,84 +23,76 @@ export default function Product({ imageSource, title, price }) {
 
 const ProductStyled = styled.div`
   background: ${theme.colors.white};
-  width: 15rem;
-  height: 20.625rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  width: 200px;
+  height: 300px;
+  display: grid;
+  grid-template-rows: 65% 1fr;
+  padding: 20px;
+  padding-bottom: 10px;
+  box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
-
-  /* Image Section */
 
   .image {
-    margin-top: 50px;
-    margin-bottom: 15px;
-
-    max-width: 12.5rem;
-    height: 145px;
-
-    display: flex;
-    align-items: center;
-  }
-
-  img {
     width: 100%;
-    max-height: 145px;
-  }
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
 
-  /* Description Section */
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
   .text-info {
-    width: 12.5rem;
-    height: 6.875rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0.3125rem;
-  }
+    display: grid;
+    grid-template-rows: 30% 70%;
+    padding: 5px;
 
-  .title {
-    font-family: Amatic SC;
-    font-size: ${theme.fonts.size.P4};
-    font-weight: ${theme.fonts.weights.bold};
-    line-height: 2.8375rem;
-    color: ${theme.colors.dark};
+    .title {
+      margin: auto 0;
+      font-size: ${theme.fonts.size.P4};
+      position: relative;
+      bottom: 10px;
+      font-weight: ${theme.fonts.weights.bold};
+      color: ${theme.colors.dark};
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-overflow: ellipsis;
+      font-family: "Amatic SC", cursive;
+    }
 
-    width: 11.875rem;
-    height: 2.875rem;
+    .description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    position: relative;
-  }
+      .left-description {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: ${theme.fonts.weights.medium};
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: ${theme.fonts.weights.medium};
+        color: ${theme.colors.primary};
+      }
 
-  .description {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 11.875rem;
-    height: 4.1563rem;
-    position: relative;
-    bottom: 0.5rem;
-  }
+      .right-description {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: ${theme.fonts.size.P1};
 
-  .left-description {
-    font-family: Open Sans;
-    font-size: 1rem;
-    font-weight: ${theme.fonts.weights.regular};
-    line-height: 1.375rem;
-    text-align: left;
-    color: ${theme.colors.primary};
-  }
-
-  .btn {
-    font-size: 11px;
-    width: 95px;
-    height: 38px;
-    cursor: pointer;
+        .primary-button {
+          font-size: ${theme.fonts.size.XS};
+          cursor: pointer;
+          padding: 12px;
+        }
+      }
+    }
   }
 `;
