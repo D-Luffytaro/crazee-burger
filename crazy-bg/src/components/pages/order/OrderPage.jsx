@@ -2,18 +2,32 @@ import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import AdminContext from "../../../context/AdminContext";
+import { useState } from "react";
 
 export default function OrderPage() {
-  const { username } = useParams();
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+
+  const adminContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
 
   return (
-    <OrderPageStyled>
-      <div className="container">
-        <Navbar username={username} />
-        <Main />
-      </div>
-    </OrderPageStyled>
+    <AdminContext.Provider value={adminContextValue}>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </AdminContext.Provider>
   );
 }
 
@@ -31,5 +45,6 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     height: 95vh;
     width: 87.5rem;
+    border-radius: ${theme.borderRadius.extraRound};
   }
 `;
