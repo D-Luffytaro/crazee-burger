@@ -1,7 +1,8 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import AdminContext from "../../../../../context/AdminContext";
-import { useContext } from "react";
-import { getTabSelected, tabsConfig } from "./tabsConfig";
+import { tabsConfig, getTabSelected } from "./tabsConfig";
+import { theme } from "../../../../../theme";
 
 export default function PanelAdmin() {
   const { currentTabSelected } = useContext(AdminContext);
@@ -13,8 +14,10 @@ export default function PanelAdmin() {
 }
 
 const AdminPanelStyled = styled.div`
-  height: 250px;
-  border: 2px solid #e4e5e9;
-  background-color: white;
-  box-shadow: 0px -6px 8px -2px #0000001a;
+  height: 251px;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  background: ${theme.colors.white};
+  border-top: 1px solid ${theme.colors.greyLight};
+  box-shadow: ${theme.shadows.subtle};
 `;

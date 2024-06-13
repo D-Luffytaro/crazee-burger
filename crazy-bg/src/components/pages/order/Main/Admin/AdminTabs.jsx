@@ -1,10 +1,11 @@
+import { useContext } from "react";
 import Tab from "./Tab";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
-import { useContext } from "react";
 import AdminContext from "../../../../../context/AdminContext";
 import { tabsConfig } from "./tabsConfig";
+import { theme } from "../../../../../theme";
 
 export default function AdminTabs() {
   const {
@@ -44,20 +45,19 @@ export default function AdminTabs() {
 
 const AdminTabsStyled = styled.div`
   display: flex;
-  width: fit-content;
 
   .active {
-    background: #292729;
-    border-width: 1px 1px 2px 1px;
-    border-style: solid;
-    border-color: #292729;
+    background: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
+    border-bottom: 2px;
     .icon,
     span {
-      color: white;
+      color: ${theme.colors.white};
     }
   }
 
   button {
-    margin-right: 1px;
+    margin-left: 1px;
   }
 `;

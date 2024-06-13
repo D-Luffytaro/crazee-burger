@@ -45,5 +45,6 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     height: 95vh;
     width: 87.5rem;
+    border-radius: ${theme.borderRadius.extraRound};
   }
 `;
