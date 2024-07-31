@@ -2,7 +2,7 @@ import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import styled from "styled-components";
-import AdminContext from "../../../context/AdminContext";
+import OrderContext from "../../../context/OrderContext";
 import { useState } from "react";
 
 export default function OrderPage() {
@@ -10,7 +10,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
-  const adminContextValue = {
+  const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
@@ -20,14 +20,14 @@ export default function OrderPage() {
   };
 
   return (
-    <AdminContext.Provider value={adminContextValue}>
+    <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
           <Navbar />
           <Main />
         </div>
       </OrderPageStyled>
-    </AdminContext.Provider>
+    </OrderContext.Provider>
   );
 }
 

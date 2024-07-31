@@ -3,7 +3,7 @@ import Tab from "./Tab";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
-import AdminContext from "../../../../../context/AdminContext";
+import OrderContext from "../../../../../context/OrderContext";
 import { tabsConfig } from "./tabsConfig";
 import { theme } from "../../../../../theme";
 
@@ -13,7 +13,7 @@ export default function AdminTabs() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
-  } = useContext(AdminContext);
+  } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
     setIsCollapsed(false); // ouvre moi le panel dans tous les cas
