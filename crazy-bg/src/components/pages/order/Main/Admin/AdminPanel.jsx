@@ -10,7 +10,11 @@ export default function PanelAdmin() {
   const tabs = tabsConfig;
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return <AdminPanelStyled>{tabSelected.label}</AdminPanelStyled>;
+  return (
+    <AdminPanelStyled>
+      {tabSelected.label && tabSelected.Content}
+    </AdminPanelStyled>
+  );
 }
 
 const AdminPanelStyled = styled.div`
@@ -20,4 +24,5 @@ const AdminPanelStyled = styled.div`
   background: ${theme.colors.white};
   border-top: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+  padding: 30px 5%;
 `;
