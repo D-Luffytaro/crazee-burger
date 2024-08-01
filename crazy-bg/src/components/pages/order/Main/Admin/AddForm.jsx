@@ -13,6 +13,7 @@ export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
 
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,12 +24,22 @@ export default function AddForm() {
     };
 
     handleAdd(newProductToAdd);
+    displaySuccessMessage();
+
+    setNewProduct(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
     const newValue = event.target.value;
     const name = event.target.name;
     setNewProduct({ ...newProduct, [name]: newValue });
+  };
+
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   return (
@@ -45,14 +56,14 @@ export default function AddForm() {
           name="title"
           value={newProduct.title}
           type="text"
-          placeholder="Nom"
+          placeholder="Nom du produit (ex: Super Burger)"
           onChange={handleChange}
         />
         <input
           name="imageSource"
           value={newProduct.imageSource}
           type="url"
-          placeholder="Image"
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           onChange={handleChange}
         />
         <input
@@ -63,7 +74,10 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <button className="submit-button">Ajouter un nouveau au menu</button>
+      <div className="submit-button">
+        <button>Ajouter un nouveau au menu</button>
+        {isSubmitted && <span>Ajouté avec succès !</span>}
+      </div>
     </AddFormStyled>
   );
 }
@@ -99,6 +113,9 @@ const AddFormStyled = styled.form`
   .submit-button {
     background-color: aliceblue;
     grid-area: 4 / -2 / 4 / -1;
-    width: 50%;
+
+    button {
+      width: 50%;
+    }
   }
 `;
