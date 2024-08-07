@@ -8,7 +8,18 @@ import OrderContext from "../../../../context/OrderContext";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin } = useContext(OrderContext);
+  const { menu, handleDelete, isModeAdmin, resetMenu } =
+    useContext(OrderContext);
+
+  if (menu.length === 0) {
+    return (
+      <div>
+        <p>Le menu est vide ?</p>
+        <p>Cliquez ci-dessous pour le réinitialiser</p>
+        <button onClick={resetMenu}>Générer de nouveaux produits</button>
+      </div>
+    );
+  }
 
   return (
     <MenuStyled className="menu">
