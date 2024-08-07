@@ -3,12 +3,20 @@ import { theme } from "../../../../theme";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import { TiDelete } from "react-icons/ti";
 
-export default function Product({ title, imageSource, leftDescription }) {
+export default function Product({
+  title,
+  imageSource,
+  leftDescription,
+  hasDeleteButton,
+}) {
   return (
     <ProductStyled className="produit">
-      <button className="delete-button">
-        <TiDelete className="icon" />
-      </button>
+      {hasDeleteButton && (
+        <button className="delete-button">
+          <TiDelete className="icon" />
+        </button>
+      )}
+
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
