@@ -7,12 +7,13 @@ export default function Product({
   title,
   imageSource,
   leftDescription,
+  onClick,
   hasDeleteButton,
 }) {
   return (
     <ProductStyled className="produit">
       {hasDeleteButton && (
-        <button className="delete-button">
+        <button className="delete-button" onClick={onClick}>
           <TiDelete className="icon" />
         </button>
       )}

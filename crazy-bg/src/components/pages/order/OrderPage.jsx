@@ -8,7 +8,7 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
 
@@ -16,6 +16,14 @@ export default function OrderPage() {
     const newMenu = [...menu];
 
     const menuUpdated = [newProduct, ...newMenu];
+
+    setMenu(menuUpdated);
+  };
+
+  const handleDelete = (idDelete) => {
+    const menuCopy = [...menu];
+
+    const menuUpdated = menuCopy.filter((product) => product.id !== idDelete);
 
     setMenu(menuUpdated);
   };
@@ -28,8 +36,8 @@ export default function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    setMenu,
     handleAdd,
+    handleDelete,
   };
 
   return (
