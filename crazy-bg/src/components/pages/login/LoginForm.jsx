@@ -8,11 +8,9 @@ import { theme } from "../../../theme/index";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
-  // state (état, données)
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
-  // comportements
   const handleSubmit = (event) => {
     event.preventDefault();
     setInputValue("");
@@ -23,7 +21,6 @@ export default function LoginForm() {
     setInputValue(event.target.value);
   };
 
-  // affichage (render)
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
@@ -35,11 +32,11 @@ export default function LoginForm() {
         onChange={handleChange}
         placeholder={"Entrez votre prénom"}
         required
-        Icon={<BsPersonCircle className="icon" />}
+        Icon={<BsPersonCircle />}
       />
       <PrimaryButton
         label={"Accéder à mon espace"}
-        Icon={<IoChevronForward className="icon" />}
+        Icon={<IoChevronForward />}
       />
     </LoginFormStyled>
   );
@@ -68,13 +65,5 @@ const LoginFormStyled = styled.form`
     margin: 1.25rem 0.625rem 0.625rem;
     color: ${theme.colors.white};
     font-size: ${theme.fonts.size.P4};
-  }
-
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.size.SM};
-    margin-left: 0.625rem;
   }
 `;
