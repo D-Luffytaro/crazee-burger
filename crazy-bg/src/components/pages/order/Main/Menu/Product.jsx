@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import { theme } from "../../../../../theme";
+import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { TiDelete } from "react-icons/ti";
 
 export default function Product({

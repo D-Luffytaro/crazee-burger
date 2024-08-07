@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import Product from "./Product";
-import { theme } from "../../../../theme";
-import { formatPrice } from "../../../../utils/maths";
-import OrderContext from "../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
@@ -12,13 +14,10 @@ export default function Menu() {
     useContext(OrderContext);
 
   if (menu.length === 0) {
-    return (
-      <div>
-        <p>Le menu est vide ?</p>
-        <p>Cliquez ci-dessous pour le réinitialiser</p>
-        <button onClick={resetMenu}>Générer de nouveaux produits</button>
-      </div>
-    );
+    if (!isModeAdmin) {
+      return <EmptyMenuClient />;
+    }
+    return <EmptyMenuAdmin resetMenu={resetMenu} />;
   }
 
   return (
