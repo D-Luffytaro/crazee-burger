@@ -55,6 +55,11 @@ const ProfileStyled = styled.div`
       font-weight: ${theme.fonts.weights.regular};
       line-height: 0.875rem;
     }
+
+    .link:hover {
+      border-bottom: 1px solid #747b91;
+      padding-bottom: 3px;
+    }
   }
 
   .icon {
