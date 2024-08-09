@@ -88,13 +88,21 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr);
   height: 100%;
   width: 70%;
+  grid-column-gap: 20px;
+  grid-row-gap: 8px;
 
   .image-prewiew {
-    background-color: #b4b4f3;
     grid-area: 1 / -5 / 4 / 2;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #e4e5e9;
+    border-radius: 5px;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #93a2b1;
 
     img {
       width: 100%;
