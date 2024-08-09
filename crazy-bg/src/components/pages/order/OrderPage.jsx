@@ -5,12 +5,14 @@ import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
 import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { EMPTY_PRODUCT } from "./Main/Admin/AddForm";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
     const newMenu = [...menu];
@@ -29,7 +31,7 @@ export default function OrderPage() {
   };
 
   const resetMenu = () => {
-    setMenu(fakeMenu.SMALL);
+    setNewProduct(fakeMenu.SMALL);
   };
 
   const orderContextValue = {
@@ -43,6 +45,8 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetMenu,
+    newProduct,
+    setNewProduct,
   };
 
   return (
