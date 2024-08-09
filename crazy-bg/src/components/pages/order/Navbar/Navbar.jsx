@@ -24,7 +24,6 @@ const NavbarStyled = styled.div`
 
   width: 100%;
   align-items: center;
-  padding: 0rem 1.25rem;
 
   .logo-link {
     cursor: pointer;
