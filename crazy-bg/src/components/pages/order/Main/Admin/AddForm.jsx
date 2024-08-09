@@ -2,11 +2,9 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { useContext, useState } from "react";
 import TextInput from "../../../../reusable-ui/TextInput";
-import { FaHamburger } from "react-icons/fa";
-import { BsFillCameraFill } from "react-icons/bs";
-import { MdOutlineEuro } from "react-icons/md";
 import Button from "../../../../reusable-ui/Button";
 import SubmitMessage from "./SubmitMessage";
+import { getInputTextConfig } from "./inputTextConfig";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -47,6 +45,8 @@ export default function AddForm() {
     }, 2000);
   };
 
+  const inputTexts = getInputTextConfig(newProduct);
+
   return (
     <AddFormStyled action="submit" onSubmit={handleSubmit}>
       <div className="image-prewiew">
@@ -57,31 +57,17 @@ export default function AddForm() {
         )}
       </div>
       <div className="input-fields">
-        <TextInput
-          name="title"
-          value={newProduct.title}
-          placeholder="Nom du produit (ex: Super Burger)"
-          onChange={handleChange}
-          Icon={<FaHamburger />}
-          version="minimalist"
-        />
-        <TextInput
-          name="imageSource"
-          value={newProduct.imageSource}
-          type="url"
-          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-          onChange={handleChange}
-          Icon={<BsFillCameraFill />}
-          version="minimalist"
-        />
-        <TextInput
-          name="price"
-          value={newProduct.price ? newProduct.price : ""}
-          placeholder="Prix"
-          onChange={handleChange}
-          Icon={<MdOutlineEuro />}
-          version="minimalist"
-        />
+        {inputTexts.map((input) => (
+          <TextInput
+            key={input.index}
+            name={input.name}
+            value={input.value}
+            placeholder={input.placeholder}
+            Icon={input.Icon}
+            onChange={handleChange}
+            version="minimalist"
+          />
+        ))}
       </div>
       <div className="submit">
         <Button
@@ -107,7 +93,6 @@ const AddFormStyled = styled.form`
   .image-prewiew {
     grid-area: 1 / -5 / 4 / 2;
     display: flex;
-    align-items: center;
     justify-content: center;
     border: 1px solid #e4e5e9;
     border-radius: 5px;
@@ -134,7 +119,6 @@ const AddFormStyled = styled.form`
   .submit {
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
-    align-items: center;
 
     .submit-button {
       height: 100%;
