@@ -5,6 +5,7 @@ import TextInput from "../../../../reusable-ui/TextInput";
 import Button from "../../../../reusable-ui/Button";
 import SubmitMessage from "./SubmitMessage";
 import { getInputTextConfig } from "./inputTextConfig";
+import ImagePrewiew from "./ImagePrewiew";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -49,17 +50,14 @@ export default function AddForm() {
 
   return (
     <AddFormStyled action="submit" onSubmit={handleSubmit}>
-      <div className="image-prewiew">
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <div>Aucune Image</div>
-        )}
-      </div>
+      <ImagePrewiew
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         {inputTexts.map((input) => (
           <TextInput
-            key={input.index}
+            key={input.id}
             name={input.name}
             value={input.value}
             placeholder={input.placeholder}
@@ -89,26 +87,6 @@ const AddFormStyled = styled.form`
   width: 70%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
-
-  .image-prewiew {
-    grid-area: 1 / -5 / 4 / 2;
-    display: flex;
-    justify-content: center;
-    border: 1px solid #e4e5e9;
-    border-radius: 5px;
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #93a2b1;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
 
   .input-fields {
     grid-area: 1 / 2 / 4 / -2;
