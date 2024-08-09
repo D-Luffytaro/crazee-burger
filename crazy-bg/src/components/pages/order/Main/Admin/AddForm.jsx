@@ -5,6 +5,7 @@ import TextInput from "../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
+import Button from "../../../../reusable-ui/Button";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -82,8 +83,12 @@ export default function AddForm() {
           version="minimalist"
         />
       </div>
-      <div className="submit-button">
-        <button>Ajouter un nouveau au menu</button>
+      <div className="submit">
+        <Button
+          className="submit-button"
+          label={"Ajouter un nouveau produit au menu"}
+          version="success"
+        />
         {isSubmitted && <span>Ajouté avec succès !</span>}
       </div>
     </AddFormStyled>
@@ -126,11 +131,11 @@ const AddFormStyled = styled.form`
     grid-row-gap: 8px;
   }
 
-  .submit-button {
-    background-color: aliceblue;
-    grid-area: 4 / -2 / 4 / -1;
+  .submit {
+    grid-area: 4 / -2 / -1 / -1;
+    align-items: center;
 
-    button {
+    .submit-button {
       width: 50%;
     }
   }

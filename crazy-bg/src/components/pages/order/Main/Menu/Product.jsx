@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import Button from "../../../../reusable-ui/Button";
 import { TiDelete } from "react-icons/ti";
 
 export default function Product({
@@ -26,7 +26,7 @@ export default function Product({
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
