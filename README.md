@@ -19,7 +19,7 @@ Développée avec ReactJS et Vite, l'application garantit une expérience utilis
 <br />
 <h2>Installation</h2>
 <br />
-Cloner le dépôt : git clone https://github.com/username/crazee-burger.git <br />
+Cloner le dépôt : git clone git@github.com:D-Luffytaro/crazee-burger.git <br />
 <br />
 Installer les dépendances : npm install <br />
 <br />
