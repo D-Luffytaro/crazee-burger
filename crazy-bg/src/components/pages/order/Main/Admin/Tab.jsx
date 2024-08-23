@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../../../theme";
 
 export default function Tab({ label, Icon, className, onClick }) {
   return (
@@ -10,8 +11,9 @@ export default function Tab({ label, Icon, className, onClick }) {
 }
 
 const TabStyled = styled.button`
+  border: 1px solid blue;
+  padding: 0 22px;
   height: 43px;
-  padding: 0 20px;
 
   display: flex;
   justify-content: center;
@@ -19,31 +21,30 @@ const TabStyled = styled.button`
 
   cursor: pointer;
 
+  font-size: ${theme.fonts.size.P0};
+  color: ${theme.colors.greySemiDark};
+
   position: relative;
   left: 5%;
-  top: 2px;
+  top: 1px;
 
-  background: #ffffff;
-
+  background: ${theme.colors.background_white};
   border-width: 1px 1px 2px 1px;
-  border-color: #e4e5e9;
+  border-color: ${theme.colors.greyLight};
   border-style: solid;
-
-  border-radius: 5px 5px 0 0;
+  box-shadow: ${theme.shadows.subtle};
+  border-radius: 5px 5px 0px 0px;
 
   .icon {
-    color: #93a2b1;
-    width: 16px;
-    height: 16px;
+    display: flex;
   }
 
   span {
     font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-weight: ${theme.fonts.weights.regular};
     line-height: 22px;
     text-align: center;
-    color: #93a2b1;
+    color: ${theme.colors.greySemiDark};
   }
 
   .label {
@@ -51,9 +52,7 @@ const TabStyled = styled.button`
   }
 
   &:hover {
-    border-bottom: 2px solid white;
-    span {
-      text-decoration: underline;
-    }
+    border-bottom: 2px solid ${theme.colors.white};
+    text-decoration: underline;
   }
 `;

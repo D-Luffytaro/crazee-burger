@@ -1,12 +1,24 @@
 import styled from "styled-components";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
-import { useState } from "react";
+import { useContext } from "react";
 import Product from "./Product";
-import { theme } from "../../../../theme";
-import { formatPrice } from "../../../../utils/maths";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
+
+const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const { menu, handleDelete, isModeAdmin, resetMenu } =
+    useContext(OrderContext);
+
+  if (menu.length === 0) {
+    if (!isModeAdmin) {
+      return <EmptyMenuClient />;
+    }
+    return <EmptyMenuAdmin resetMenu={resetMenu} />;
+  }
 
   return (
     <MenuStyled className="menu">
@@ -15,8 +27,10 @@ export default function Menu() {
           <Product
             key={id}
             title={title}
-            imageSource={imageSource}
+            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
+            onClick={() => handleDelete(id)}
           />
         );
       })}

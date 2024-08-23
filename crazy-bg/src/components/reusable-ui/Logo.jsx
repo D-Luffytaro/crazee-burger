@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import img from "../../assets/Logo-orange.png";
 import styled from "styled-components";
 import { theme } from "../../theme";
@@ -13,14 +12,10 @@ export default function Logo({ className, onClick }) {
   );
 }
 
-Logo.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
 const LogoStyled = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 1.25rem;
 
   h1 {
     display: inline;
@@ -38,7 +33,7 @@ const LogoStyled = styled.div`
     object-fit: contain;
     object-position: center;
     height: 3.75rem;
-    width: 5rem; // for Safari and Firefox
+    width: 5rem;
     margin: 0 ${theme.gridUnit / 2}px;
   }
 `;
