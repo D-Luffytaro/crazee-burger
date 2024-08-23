@@ -18,11 +18,10 @@ export default function PanelAdmin() {
 }
 
 const AdminPanelStyled = styled.div`
-  height: 251px;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
-  border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  height: 240px;
   background: ${theme.colors.white};
   border-top: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+  box-sizing: border-box;
   padding: 30px 5%;
 `;
