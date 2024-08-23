@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import OrderContext from "../../../../../context/OrderContext";
+import OrderContext from "../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
-import TextInput from "../../../../reusable-ui/TextInput";
-import Button from "../../../../reusable-ui/Button";
+import TextInput from "../../../../../reusable-ui/TextInput";
+import Button from "../../../../../reusable-ui/Button";
 import SubmitMessage from "./SubmitMessage";
-import { getInputTextConfig } from "./inputTextConfig";
+import { getInputTextConfig } from "../inputTextConfig";
 import ImagePrewiew from "./ImagePrewiew";
 
 export const EMPTY_PRODUCT = {
